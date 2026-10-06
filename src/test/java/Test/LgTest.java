@@ -54,12 +54,38 @@ public class LgTest extends baseTest{
 		        Response response =
 		        		AccounTransfer.AcTransfer(payload);
 
-		        // Validate status code
-		        Assert.assertEquals(
-		                response.statusCode(),
-		                200
-		        );
+		        int statusCode = response.statusCode();
 
+			       // Validate status code
+			       if (statusCode == 200) {
+
+			           System.out.println("Test Passed - VerifyAcTransfer successful");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 401) {
+
+			           System.out.println("Token was expired/missing");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 500) {
+
+			           System.out.println("Server error");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 400) {
+
+			           System.out.println("Invalid Parameter");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else {
+
+			           System.out.println("Unexpected status code: " + statusCode);
+			           Assert.fail("Unexpected status code: " + statusCode);
+			       }
 		    
 		        // Print response
 		        System.out.println(
@@ -80,41 +106,94 @@ public class LgTest extends baseTest{
 		        		Pages.M2mTransfer.M2mTransfers(payload);
 
 		        // Validate status code
-		        Assert.assertEquals(
-		                response.statusCode(),
-		                200
-		        );
+		        int statusCode = response.statusCode();
 
-		    
+			       // Validate status code
+			       if (statusCode == 200) {
+
+			           System.out.println("Test Passed - M2mTransfer successful");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 401) {
+
+			           System.out.println("Token was expired/missing");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 500) {
+
+			           System.out.println("Server error");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else if (statusCode == 400) {
+
+			           System.out.println("Invalid Parameter");
+			           Assert.assertEquals(statusCode, 200);
+
+			       } 
+			       else {
+
+			           System.out.println("Unexpected status code: " + statusCode);
+			           Assert.fail("Unexpected status code: " + statusCode);
+			       }
+
+			     
 		        // Print response
 		        System.out.println(
 		                response.asPrettyString()
 		        );
 	   }
-	   @Test(priority=4)
+	   @Test(priority = 4)
 	   public void Loanpayment() {
-		      String payload =
-		                PayloadReader.getPayload("LPPayment.json");
 
-		        // Create POM object
-		      LoanPayment AC =
-		                new LoanPayment();
+	       String payload =
+	               PayloadReader.getPayload("LPPayment.json");
 
-		        // Call login API
-		        Response response =
-		        		LoanPayment.LpTransfer(payload);
+	       // Create POM object
+	       LoanPayment AC = new LoanPayment();
 
-		        // Validate status code
-		        Assert.assertEquals(
-		                response.statusCode(),
-		                200
-		        );
+	       // Call Loan Payment API
+	       Response response =
+	               LoanPayment.LpTransfer(payload);
 
-		    
-		        // Print response
-		        System.out.println(
-		                response.asPrettyString()
-		        );
+	       // Get actual status code
+	       int statusCode = response.statusCode();
+
+	       // Validate status code
+	       if (statusCode == 200) {
+
+	           System.out.println("Test Passed - Loan Payment successful");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else if (statusCode == 401) {
+
+	           System.out.println("Token was expired/missing");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else if (statusCode == 500) {
+
+	           System.out.println("Server error");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else if (statusCode == 400) {
+
+	           System.out.println("Invalid Parameter");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else {
+
+	           System.out.println("Unexpected status code: " + statusCode);
+	           Assert.fail("Unexpected status code: " + statusCode);
+	       }
+
+	       // Print response
+	       System.out.println(response.asPrettyString());
 	   }
 
 }
