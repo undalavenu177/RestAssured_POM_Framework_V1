@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import Listener.ExtentReportListener;
 import Base.baseTest;
 import Pages.AccounTransfer;
+import Pages.LoanPayment;
 import Pages.Login;
 import io.restassured.response.Response;
 import utilities.PayloadReader;
@@ -52,6 +53,56 @@ public class LgTest extends baseTest{
 		        // Call login API
 		        Response response =
 		        		AccounTransfer.AcTransfer(payload);
+
+		        // Validate status code
+		        Assert.assertEquals(
+		                response.statusCode(),
+		                200
+		        );
+
+		    
+		        // Print response
+		        System.out.println(
+		                response.asPrettyString()
+		        );
+	   }
+	   @Test(priority=3)
+	   public void M2mTransfer() {
+		      String payload =
+		                PayloadReader.getPayload("M2mTransfer.json");
+
+		        // Create POM object
+		      Pages.M2mTransfer AC =
+		                new Pages.M2mTransfer();
+
+		        // Call login API
+		        Response response =
+		        		Pages.M2mTransfer.M2mTransfers(payload);
+
+		        // Validate status code
+		        Assert.assertEquals(
+		                response.statusCode(),
+		                200
+		        );
+
+		    
+		        // Print response
+		        System.out.println(
+		                response.asPrettyString()
+		        );
+	   }
+	   @Test(priority=4)
+	   public void Loanpayment() {
+		      String payload =
+		                PayloadReader.getPayload("LPPayment.json");
+
+		        // Create POM object
+		      LoanPayment AC =
+		                new LoanPayment();
+
+		        // Call login API
+		        Response response =
+		        		LoanPayment.LpTransfer(payload);
 
 		        // Validate status code
 		        Assert.assertEquals(

@@ -23,6 +23,11 @@ public class ExtentReportListener implements ITestListener {
 
         extent = new ExtentReports();
         extent.attachReporter(spark);
+        extent.setSystemInfo("Tester Name", "Venu");
+        extent.setSystemInfo("Designation", "QA Analyst");
+        extent.setSystemInfo("Experience", "2.6 Years");
+        extent.setSystemInfo("Project", "Blossom API");
+        extent.setSystemInfo("Environment", "QA");
     }
 
     @Override
