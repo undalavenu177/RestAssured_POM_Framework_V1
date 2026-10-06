@@ -1,17 +1,19 @@
 package Test;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+import Listener.ExtentReportListener;
 import Base.baseTest;
 import Pages.AccounTransfer;
 import Pages.Login;
 import io.restassured.response.Response;
 import utilities.PayloadReader;
-
+@Listeners (ExtentReportListener.class)
 public class LgTest extends baseTest{
 	   @Test(priority=1)
 	    public void verifyLogin() {
+	    
 
 	        // Read payload from test data
 	        String payload =
@@ -34,7 +36,9 @@ public class LgTest extends baseTest{
 	        // Print response
 	        System.out.println(
 	                response.asPrettyString()
+	                
 	        );
+	        System.out.println("Executing Login API");
 	    }
 	   @Test(priority=2)
 	   public void VerifyAcTransfer() {
@@ -55,6 +59,7 @@ public class LgTest extends baseTest{
 		                200
 		        );
 
+		    
 		        // Print response
 		        System.out.println(
 		                response.asPrettyString()

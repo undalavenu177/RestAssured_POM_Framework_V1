@@ -3,8 +3,12 @@ package Pages;
 import io.restassured.response.Response;
 import utilities.configreader;
 import static org.hamcrest.Matchers.*;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import Listener.ExtentReportListener;
+import Listener.MyListener;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -15,6 +19,8 @@ import static io.restassured.module.jsv.JsonSchemaValidator.*;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+
+//@Listeners(ExtentReportListener.class)
 public class Login {
 	public static String token;
     public Response login(String payload) {
@@ -30,6 +36,7 @@ public class Login {
                         configreader
                         .value("login.endpoint")
                     );
+        
         
         response.then()
         .statusCode(200);
