@@ -160,30 +160,37 @@ public class LgTest extends baseTest{
 
 	       // Get actual status code
 	       int statusCode = response.statusCode();
+	       String Mesg= response.jsonPath().getString("message");
 
 	       // Validate status code
-	       if (statusCode == 200) {
+	       if (statusCode == 200 && Mesg.contains("successfully") ) {
 
 	           System.out.println("Test Passed - Loan Payment successful");
 	           Assert.assertEquals(statusCode, 200);
 
 	       } 
+	       else if (statusCode == 200 && Mesg.contains("Rejected")) {
+
+	    	    System.out.println("Test Failed - Transaction Rejected");
+
+	    	    Assert.fail("Transaction Rejected");
+	    	}
 	       else if (statusCode == 401) {
 
 	           System.out.println("Token was expired/missing");
-	           Assert.assertEquals(statusCode, 200);
+	           Assert.assertEquals(statusCode, 401);
 
 	       } 
 	       else if (statusCode == 500) {
 
 	           System.out.println("Server error");
-	           Assert.assertEquals(statusCode, 200);
+	           Assert.assertEquals(statusCode, 500);
 
 	       } 
 	       else if (statusCode == 400) {
 
 	           System.out.println("Invalid Parameter");
-	           Assert.assertEquals(statusCode, 200);
+	           Assert.assertEquals(statusCode, 400);
 
 	       } 
 	       else {
