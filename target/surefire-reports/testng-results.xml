@@ -1,32 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="6" passed="4" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-10-06T18:15:44 IST" name="Surefire suite" finished-at="2026-10-06T18:16:01 IST" duration-ms="17026">
+  <suite started-at="2026-10-07T10:39:44 IST" name="Surefire suite" finished-at="2026-10-07T10:40:13 IST" duration-ms="29022">
     <groups>
     </groups>
-    <test started-at="2026-10-06T18:15:44 IST" name="Surefire test" finished-at="2026-10-06T18:16:01 IST" duration-ms="17026">
+    <test started-at="2026-10-07T10:39:44 IST" name="Surefire test" finished-at="2026-10-07T10:40:13 IST" duration-ms="29022">
       <class name="Test.LgTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Test.LgTest@69b2283a]" started-at="2026-10-06T18:15:44 IST" name="setup" finished-at="2026-10-06T18:15:44 IST" duration-ms="268" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:44 IST" name="setup" finished-at="2026-10-07T10:39:44 IST" duration-ms="208" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin()[pri:1, instance:Test.LgTest@69b2283a]" started-at="2026-10-06T18:15:44 IST" name="verifyLogin" finished-at="2026-10-06T18:15:47 IST" duration-ms="2863" status="PASS">
+        <test-method signature="verifyLogin()[pri:1, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:44 IST" name="verifyLogin" finished-at="2026-10-07T10:39:47 IST" duration-ms="2661" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method signature="VerifyAcTransfer()[pri:2, instance:Test.LgTest@69b2283a]" started-at="2026-10-06T18:15:47 IST" name="VerifyAcTransfer" finished-at="2026-10-06T18:15:51 IST" duration-ms="4519" status="PASS">
+        <test-method signature="VerifyAcTransfer()[pri:2, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:47 IST" name="VerifyAcTransfer" finished-at="2026-10-07T10:39:51 IST" duration-ms="4531" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifyAcTransfer -->
-        <test-method signature="M2mTransfer()[pri:3, instance:Test.LgTest@69b2283a]" started-at="2026-10-06T18:15:51 IST" name="M2mTransfer" finished-at="2026-10-06T18:15:56 IST" duration-ms="4517" status="PASS">
+        <test-method signature="M2mTransfer()[pri:3, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:51 IST" name="M2mTransfer" finished-at="2026-10-07T10:39:53 IST" duration-ms="1516" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- M2mTransfer -->
-        <test-method signature="Loanpayment()[pri:4, instance:Test.LgTest@69b2283a]" started-at="2026-10-06T18:15:56 IST" name="Loanpayment" finished-at="2026-10-06T18:16:01 IST" duration-ms="4696" status="PASS">
+        <test-method signature="Loanpayment()[pri:4, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:53 IST" name="Loanpayment" finished-at="2026-10-07T10:39:57 IST" duration-ms="4780" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Loanpayment -->
+        <test-method signature="CrosssLoanpayment()[pri:5, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:39:57 IST" name="CrosssLoanpayment" finished-at="2026-10-07T10:40:11 IST" duration-ms="13710" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Transaction Rejected]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Transaction Rejected
+at org.testng.Assert.fail(Assert.java:111)
+at Test.LgTest.CrosssLoanpayment(LgTest.java:235)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CrosssLoanpayment -->
+        <test-method signature="Unrestritctedtransfer()[pri:5, instance:Test.LgTest@6fe7aac8]" started-at="2026-10-07T10:40:11 IST" name="Unrestritctedtransfer" finished-at="2026-10-07T10:40:13 IST" duration-ms="1482" status="FAIL">
+          <exception class="java.lang.NullPointerException">
+            <message>
+              <![CDATA[Cannot invoke "String.contains(java.lang.CharSequence)" because "Mesg1" is null]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "String.contains(java.lang.CharSequence)" because "Mesg1" is null
+at Test.LgTest.Unrestritctedtransfer(LgTest.java:282)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:155)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:169)
+at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:88)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:137)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Unrestritctedtransfer -->
       </class> <!-- Test.LgTest -->
     </test> <!-- Surefire test -->
   </suite> <!-- Surefire suite -->

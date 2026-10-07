@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Surefire_suite" class="navigator-link">
-              <span class="suite-name border-passed">Surefire suite</span>
+              <span class="suite-name border-failed">Surefire suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -92,7 +92,26 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">6 methods, 2 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Surefire_suite" class="hide-methods failed suite-Surefire_suite"> (hide)</a> <!-- hide-methods failed suite-Surefire_suite -->
+                      <a href="#" panel-name="suite-Surefire_suite" class="show-methods failed suite-Surefire_suite"> (show)</a> <!-- show-methods failed suite-Surefire_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Surefire_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="Test.LgTest" class="method navigator-link" hash-for-method="CrosssLoanpayment">CrosssLoanpayment</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Surefire_suite" title="Test.LgTest" class="method navigator-link" hash-for-method="Unrestritctedtransfer">Unrestritctedtransfer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Surefire_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -133,6 +152,38 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Surefire_suite" class="panel Surefire_suite">
+          <div class="suite-Surefire_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Test.LgTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="CrosssLoanpayment">
+                  </a> <!-- CrosssLoanpayment -->
+                  <span class="method-name">CrosssLoanpayment</span>
+                  <div class="stack-trace">java.lang.AssertionError: Transaction Rejected
+	at Test.LgTest.CrosssLoanpayment(LgTest.java:235)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Unrestritctedtransfer">
+                  </a> <!-- Unrestritctedtransfer -->
+                  <span class="method-name">Unrestritctedtransfer</span>
+                  <div class="stack-trace">java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;Mesg1&quot; is null
+	at Test.LgTest.Unrestritctedtransfer(LgTest.java:282)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 30 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Surefire_suite-class-failed -->
           <div class="suite-Surefire_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -221,28 +272,36 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(6);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'Loanpayment')
+data.setCell(0, 1, 'CrosssLoanpayment')
 data.setCell(0, 2, 'Test.LgTest')
-data.setCell(0, 3, 4696);
+data.setCell(0, 3, 13710);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'VerifyAcTransfer')
+data.setCell(1, 1, 'Loanpayment')
 data.setCell(1, 2, 'Test.LgTest')
-data.setCell(1, 3, 4519);
+data.setCell(1, 3, 4780);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'M2mTransfer')
+data.setCell(2, 1, 'VerifyAcTransfer')
 data.setCell(2, 2, 'Test.LgTest')
-data.setCell(2, 3, 4517);
+data.setCell(2, 3, 4531);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'verifyLogin')
 data.setCell(3, 2, 'Test.LgTest')
-data.setCell(3, 3, 2863);
+data.setCell(3, 3, 2661);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'M2mTransfer')
+data.setCell(4, 2, 'Test.LgTest')
+data.setCell(4, 3, 1516);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'Unrestritctedtransfer')
+data.setCell(5, 2, 'Test.LgTest')
+data.setCell(5, 3, 1482);
 window.suiteTableData['Surefire_suite']= { tableData: data, tableDiv: 'times-div-Surefire_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 16 seconds</span>
+              <span class="suite-total-time">Total running time: 28 seconds</span>
               <div id="times-div-Surefire_suite">
               </div> <!-- times-div-Surefire_suite -->
             </div> <!-- times-div -->
@@ -275,19 +334,31 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">verifyLogin</span>
-                <span class="method-start">275 ms</span>
+                <span class="method-start">213 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">VerifyAcTransfer</span>
-                <span class="method-start">3146 ms</span>
+                <span class="method-start">2881 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">M2mTransfer</span>
-                <span class="method-start">7672 ms</span>
+                <span class="method-start">7414 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">Loanpayment</span>
-                <span class="method-start">12193 ms</span>
+                <span class="method-start">8931 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">CrosssLoanpayment</span>
+                <span class="method-start">13712 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">Unrestritctedtransfer</span>
+                <span class="method-start">27425 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

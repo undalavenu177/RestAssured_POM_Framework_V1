@@ -6,7 +6,8 @@
       <class name="Test.LgTest">
         <methods>
           <include name="setup"/>
-          <include name="Loanpayment"/>
+          <include name="CrosssLoanpayment"/>
+          <include name="Unrestritctedtransfer"/>
         </methods>
       </class> <!-- Test.LgTest -->
     </classes>

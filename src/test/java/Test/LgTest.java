@@ -8,6 +8,8 @@ import Base.baseTest;
 import Pages.AccounTransfer;
 import Pages.LoanPayment;
 import Pages.Login;
+import Pages.Unrestrictedtrasnfer;
+import Pages.crossloanpay;
 import io.restassured.response.Response;
 import utilities.PayloadReader;
 @Listeners (ExtentReportListener.class)
@@ -201,6 +203,121 @@ public class LgTest extends baseTest{
 
 	       // Print response
 	       System.out.println(response.asPrettyString());
+	   }
+	   @Test(priority = 5)
+	   public void CrosssLoanpayment() {
+
+	       String payload =
+	               PayloadReader.getPayload("crossloanPay.json");
+
+	       // Create POM object
+	       crossloanpay AC = new crossloanpay();
+
+	       // Call Loan Payment API
+	       Response responsecr =
+	    		   crossloanpay.crossloanpayment(payload);
+
+	       // Get actual status code
+	       int statusCode = responsecr.statusCode();
+	       String Mesgcr= responsecr.jsonPath().getString("transactionResponse.transaction.status.message");
+
+	       // Validate status code
+	       if (statusCode == 200 && Mesgcr.contains("successfully") ) {
+
+	           System.out.println("Test Passed - cross Loan Payment successful");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else if (statusCode == 200 && Mesgcr.contains("Rejected")) {
+
+	    	    System.out.println("Test Failed - Transaction Rejected");
+
+	    	    Assert.fail("Transaction Rejected");
+	    	}
+	       else if (statusCode == 401) {
+
+	           System.out.println("Token was expired/missing");
+	           Assert.assertEquals(statusCode, 401);
+
+	       } 
+	       else if (statusCode == 500) {
+
+	           System.out.println("Server error");
+	           Assert.assertEquals(statusCode, 500);
+
+	       } 
+	       else if (statusCode == 400) {
+
+	           System.out.println("Invalid Parameter");
+	           Assert.assertEquals(statusCode, 400);
+
+	       } 
+	       else {
+
+	           System.out.println("Unexpected status code: " + statusCode);
+	           Assert.fail("Unexpected status code: " + statusCode);
+	       }
+
+	       // Print response
+	       System.out.println(responsecr.asPrettyString());
+	   }
+	   @Test(priority = 5)
+	   public void Unrestritctedtransfer() {
+
+	       String payload =
+	               PayloadReader.getPayload("crossloanPay.json");
+
+	       // Create POM object
+	       Unrestrictedtrasnfer AC = new Unrestrictedtrasnfer();
+
+	       // Call Loan Payment API
+	       Response response1 =
+	    		   Unrestrictedtrasnfer.croAcTransfer(payload);
+
+	       // Get actual status code
+	       int statusCode = response1.statusCode();
+	       String Mesg1= response1.jsonPath().getString("transactionResponse.transaction.status.message");
+	       System.out.println(Mesg1);
+
+	       // Validate status code
+	       if (statusCode == 200 || Mesg1.contains("successfully") ) {
+
+	           System.out.println("Test Passed - Unrestrcicted trasnfer was successful");
+	           Assert.assertEquals(statusCode, 200);
+
+	       } 
+	       else if (statusCode == 200 || Mesg1.contains("Rejected")) {
+
+	    	    System.out.println("Test Failed - Transaction Rejected");
+
+	    	    Assert.fail("Transaction Rejected");
+	    	}
+	       else if (statusCode == 401) {
+
+	           System.out.println("Token was expired/missing");
+	           Assert.assertEquals(statusCode, 401);
+
+	       } 
+	       else if (statusCode == 500) {
+
+	           System.out.println("Server error");
+	           Assert.assertEquals(statusCode, 500);
+
+	       } 
+	       else if (statusCode == 400) {
+
+	           System.out.println("Invalid Parameter");
+	           Assert.assertEquals(statusCode, 400);
+
+	       } 
+	       else {
+
+	           System.out.println("Unexpected status code: " + statusCode);
+	           Assert.fail("Unexpected status code: " + statusCode);
+	       }
+
+	       // Print response
+	       System.out.println(response1.asPrettyString());
 	   }
 
 }
