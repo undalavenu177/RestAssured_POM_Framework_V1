@@ -166,6 +166,7 @@ public class LgTest extends baseTest{
 	       int statusCode = response.statusCode();
 	       System.out.println(statusCode+"Status code:");
 	       String Mesg= response.jsonPath().getString("message");
+	       System.out.println(Mesg);
 
 	       // Validate status code
 	       if (statusCode == 200 && Mesg.contains("successfully") ) {

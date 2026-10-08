@@ -1,13 +1,14 @@
 {
     "tran_code":"LP",
     "type":"T",
-    "member":"1108064",
+    "member":"1020569",
     "ref1":"RG",
-    "ref2":"1108064B",
-    "ref3":"kenwilliams_01@yahoo.com",
+    "ref2":"1020569C",
+ //   "ref3":"kenwilliams_01@yahoo.com",
     "ref4":"_",
-    "ref5":"1108064",
-    "amount":"1000",
-    "tauth":"1108064B",
-    "tmemo":"Loan payment By Venu"
+    "ref5":"1020569",
+    "amount":"0.23",
+    "tauth":"1020569"
+   // "tmemo":"Loan payment"
 }
+ 
