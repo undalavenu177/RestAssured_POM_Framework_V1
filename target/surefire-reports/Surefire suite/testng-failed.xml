@@ -7,7 +7,7 @@
         <methods>
           <include name="setup"/>
           <include name="CrosssLoanpayment"/>
-          <include name="Unrestritctedtransfer"/>
+          <include name="Loanpayment"/>
         </methods>
       </class> <!-- Test.LgTest -->
     </classes>

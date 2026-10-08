@@ -147,11 +147,11 @@ public class LgTest extends baseTest{
 		                response.asPrettyString()
 		        );
 	   }
-	   @Test(priority = 4)
+	   @Test(priority = 5)
 	   public void Loanpayment() {
 
 	       String payload =
-	               PayloadReader.getPayload("LPPayment.json");
+	               PayloadReader.getPayload("LoanPay.json");
 
 	       // Create POM object
 	       LoanPayment AC = new LoanPayment();
@@ -160,8 +160,11 @@ public class LgTest extends baseTest{
 	       Response response =
 	               LoanPayment.LpTransfer(payload);
 
+	      // System.out.println(response.asPrettyString());
 	       // Get actual status code
+	       
 	       int statusCode = response.statusCode();
+	       System.out.println(statusCode+"Status code:");
 	       String Mesg= response.jsonPath().getString("message");
 
 	       // Validate status code
@@ -204,7 +207,7 @@ public class LgTest extends baseTest{
 	       // Print response
 	       System.out.println(response.asPrettyString());
 	   }
-	   @Test(priority = 5)
+	   @Test(priority = 6)
 	   public void CrosssLoanpayment() {
 
 	       String payload =
@@ -218,6 +221,7 @@ public class LgTest extends baseTest{
 	    		   crossloanpay.crossloanpayment(payload);
 
 	       // Get actual status code
+	       System.out.println(responsecr.asPrettyString());
 	       int statusCode = responsecr.statusCode();
 	       String Mesgcr= responsecr.jsonPath().getString("transactionResponse.transaction.status.message");
 
@@ -228,7 +232,7 @@ public class LgTest extends baseTest{
 	           Assert.assertEquals(statusCode, 200);
 
 	       } 
-	       else if (statusCode == 200 && Mesgcr.contains("Rejected")) {
+	       else if (statusCode == 200 && Mesgcr.contains("pending")) {
 
 	    	    System.out.println("Test Failed - Transaction Rejected");
 
@@ -261,11 +265,11 @@ public class LgTest extends baseTest{
 	       // Print response
 	       System.out.println(responsecr.asPrettyString());
 	   }
-	   @Test(priority = 5)
+	   @Test(priority = 4)
 	   public void Unrestritctedtransfer() {
 
 	       String payload =
-	               PayloadReader.getPayload("crossloanPay.json");
+	               PayloadReader.getPayload("Unrestrcicted.json");
 
 	       // Create POM object
 	       Unrestrictedtrasnfer AC = new Unrestrictedtrasnfer();
@@ -276,22 +280,24 @@ public class LgTest extends baseTest{
 
 	       // Get actual status code
 	       int statusCode = response1.statusCode();
-	       String Mesg1= response1.jsonPath().getString("transactionResponse.transaction.status.message");
-	       System.out.println(Mesg1);
+	       String Mesg1 = response1.jsonPath()
+	    	        .getString("transactionResponse.transaction.status.message");
 
-	       // Validate status code
-	       if (statusCode == 200 || Mesg1.contains("successfully") ) {
+	    	System.out.println("Message: " + Mesg1);
+	    	System.out.println(response1.asPrettyString());
 
-	           System.out.println("Test Passed - Unrestrcicted trasnfer was successful");
-	           Assert.assertEquals(statusCode, 200);
+	    	// Validate status code and response message
+	    	if (statusCode == 200 && Mesg1 != null && Mesg1.toLowerCase().contains("successfully")) {
 
-	       } 
-	       else if (statusCode == 200 || Mesg1.contains("Rejected")) {
+	    	    System.out.println("Test Passed - Unrestricted transfer was successful");
+	    	    Assert.assertEquals(statusCode, 200);
+
+	    	} else if (statusCode == 200 && Mesg1 != null && Mesg1.toLowerCase().contains("rejected")) {
 
 	    	    System.out.println("Test Failed - Transaction Rejected");
+	    	    Assert.fail("Transaction Rejected: " + Mesg1);
 
-	    	    Assert.fail("Transaction Rejected");
-	    	}
+	    	} 
 	       else if (statusCode == 401) {
 
 	           System.out.println("Token was expired/missing");

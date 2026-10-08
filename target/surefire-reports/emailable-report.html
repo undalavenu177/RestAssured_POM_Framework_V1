@@ -9,20 +9,34 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">29,022</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">35,991</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">Test.LgTest</td><td><a href="#m0">CrosssLoanpayment</a></td><td rowspan="1">1791349797921</td><td rowspan="1">13710</td></tr><tr class="failedeven"><td><a href="#m1">Unrestritctedtransfer</a></td><td rowspan="1">1791349811634</td><td rowspan="1">1482</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">Test.LgTest</td><td><a href="#m2">Loanpayment</a></td><td rowspan="1">1791349793140</td><td rowspan="1">4780</td></tr><tr class="passedeven"><td><a href="#m3">M2mTransfer</a></td><td rowspan="1">1791349791623</td><td rowspan="1">1516</td></tr><tr class="passedeven"><td><a href="#m4">VerifyAcTransfer</a></td><td rowspan="1">1791349787090</td><td rowspan="1">4531</td></tr><tr class="passedeven"><td><a href="#m5">verifyLogin</a></td><td rowspan="1">1791349784422</td><td rowspan="1">2661</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">Test.LgTest</td><td><a href="#m0">CrosssLoanpayment</a></td><td rowspan="1">1791454060709</td><td rowspan="1">13977</td></tr><tr class="failedeven"><td><a href="#m1">Loanpayment</a></td><td rowspan="1">1791454058889</td><td rowspan="1">1813</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">Test.LgTest</td><td><a href="#m2">M2mTransfer</a></td><td rowspan="1">1791454046505</td><td rowspan="1">4682</td></tr><tr class="passedeven"><td><a href="#m3">Unrestritctedtransfer</a></td><td rowspan="1">1791454051189</td><td rowspan="1">7700</td></tr><tr class="passedeven"><td><a href="#m4">VerifyAcTransfer</a></td><td rowspan="1">1791454041698</td><td rowspan="1">4805</td></tr><tr class="passedeven"><td><a href="#m5">verifyLogin</a></td><td rowspan="1">1791454039014</td><td rowspan="1">2678</td></tr></tbody>
 </table>
-<h2>Surefire test</h2><h3 id="m0">Test.LgTest#CrosssLoanpayment</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Transaction Rejected
-	at Test.LgTest.CrosssLoanpayment(LgTest.java:235)
+<h2>Surefire test</h2><h3 id="m0">Test.LgTest#CrosssLoanpayment</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: Unexpected status code: 200
+	at Test.LgTest.CrosssLoanpayment(LgTest.java:262)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 ... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">Test.LgTest#Unrestritctedtransfer</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;Mesg1&quot; is null
-	at Test.LgTest.Unrestritctedtransfer(LgTest.java:282)
+<h3 id="m1">Test.LgTest#Loanpayment</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">io.restassured.path.json.exception.JsonPathException: Failed to parse the JSON document
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1002)
+	at io.restassured.path.json.JsonPath$4.doParseWith(JsonPath.java:967)
+	at io.restassured.path.json.JsonPath$JsonParser.parseWith(JsonPath.java:1047)
+	at io.restassured.path.json.JsonPath.get(JsonPath.java:202)
+	at io.restassured.path.json.JsonPath.getString(JsonPath.java:352)
+	at Test.LgTest.Loanpayment(LgTest.java:168)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: groovy.json.JsonException: Lexing failed on line: 1, column: 1, while reading &apos;&lt;&apos;, no possible valid JSON value or punctuation could be recognized.
+	at groovy.json.JsonLexer.nextToken(JsonLexer.java:86)
+	at groovy.json.JsonLexer$nextToken.call(Unknown Source)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parse(ConfigurableJsonSlurper.groovy:97)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper$parse.callCurrent(Unknown Source)
+	at io.restassured.internal.path.json.ConfigurableJsonSlurper.parseText(ConfigurableJsonSlurper.groovy:83)
+	at io.restassured.path.json.JsonPath$4$1.method(JsonPath.java:965)
+	at io.restassured.path.json.JsonPath$ExceptionCatcher.invoke(JsonPath.java:1000)
+	... 36 more
 ... Removed 30 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">Test.LgTest#Loanpayment</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">Test.LgTest#M2mTransfer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">Test.LgTest#M2mTransfer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">Test.LgTest#Unrestritctedtransfer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m4">Test.LgTest#VerifyAcTransfer</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 <h3 id="m5">Test.LgTest#verifyLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
